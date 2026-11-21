@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="sk">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Objednávka | FIXORA PC</title><link rel="stylesheet" href="styles.css"></head>
+<body data-page="objednavka">
+  <header class="site-header"><div class="container header-inner"><a class="brand" href="index.html" aria-label="FIXORA PC — domov"><span class="brand-mark" aria-hidden="true">F</span><span>FIXORA <b>PC</b></span></a><button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-nav"><span class="sr-only">Otvoriť menu</span><span></span><span></span><span></span></button><nav class="main-nav" id="main-nav" aria-label="Hlavná navigácia"><a href="index.html" data-nav="domov">Domov</a><a href="sluzby.html" data-nav="sluzby">Služby</a><a href="cennik.html" data-nav="cennik">Cenník</a><a href="referencie.html" data-nav="referencie">Referencie</a><a href="kontakt.html" data-nav="kontakt">Kontakt</a><a class="button button-primary nav-cta" href="objednavka.html">Objednať servis</a></nav></div></header>
+  <main><section class="page-hero"><div class="container"><p class="eyebrow">Servisná požiadavka</p><h1>Objednávka servisu</h1><p>Vyplňte základné údaje. Tento formulár je zatiaľ bez reálneho prijímacieho systému.</p></div></section>
+  <section class="section"><div class="container order-layout">
+    <form class="order-form" id="objednavkovy-formular" novalidate>
+      <div class="form-error-summary field-full" id="prehled-chyb" role="alert" tabindex="-1" hidden>
+        <p>Skontrolujte, prosím, nasledujúce údaje:</p>
+        <ul></ul>
+      </div>
+      <div class="field"><label for="meno-priezvisko">Meno a priezvisko *</label><input id="meno-priezvisko" name="meno" type="text" autocomplete="name" required aria-describedby="chyba-meno"><span class="field-error" id="chyba-meno"></span></div>
+      <div class="field"><label for="telefon">Telefón *</label><input id="telefon" name="telefon" type="tel" autocomplete="tel" required aria-describedby="chyba-telefon"><span class="field-error" id="chyba-telefon"></span></div>
+      <div class="field"><label for="email">E-mail *</label><input id="email" name="email" type="email" autocomplete="email" required aria-describedby="chyba-email"><span class="field-error" id="chyba-email"></span></div>
+      <div class="field"><label for="typ-zariadenia">Typ zariadenia *</label><select id="typ-zariadenia" name="typ_zariadenia" required aria-describedby="chyba-typ-zariadenia"><option value="">Vyberte typ</option><option value="Stolný počítač">Stolný počítač</option><option value="Notebook">Notebook</option><option value="Viac zariadení">Viac zariadení</option><option value="Iné">Iné</option></select><span class="field-error" id="chyba-typ-zariadenia"></span></div>
+      <div class="field conditional-field field-full" id="pole-pocet-zariadeni" hidden><label for="pocet-zariadeni">Počet zariadení *</label><input id="pocet-zariadeni" name="pocet_zariadeni" type="number" min="1" step="1" inputmode="numeric" aria-describedby="chyba-pocet-zariadeni"><span class="field-error" id="chyba-pocet-zariadeni"></span></div>
+      <div class="field field-full"><label for="sluzba">Požadovaná služba *</label><select id="sluzba" name="sluzba" required aria-describedby="chyba-sluzba"><option value="">Vyberte službu</option><option value="Čistenie stolného PC">Čistenie stolného PC</option><option value="Čistenie notebooku">Čistenie notebooku</option><option value="Diagnostika">Diagnostika</option><option value="Upgrade komponentov">Upgrade komponentov</option><option value="Iné">Iné</option></select><span class="field-error" id="chyba-sluzba"></span></div>
+      <div class="field field-full"><label for="popis-problemu">Popis problému *</label><textarea id="popis-problemu" name="popis" required placeholder="Stručne opíšte príznaky alebo požadovanú úpravu." aria-describedby="chyba-popis-problemu"></textarea><span class="field-error" id="chyba-popis-problemu"></span></div>
+      <div class="field checkbox-field field-full"><input id="suhlas" name="suhlas" type="checkbox" required aria-describedby="chyba-suhlas"><label for="suhlas">Súhlasím so spracovaním údajov na účel spracovania tejto servisnej požiadavky. *</label><span class="field-error" id="chyba-suhlas"></span></div>
+      <button class="button button-primary form-submit" id="odoslat-poziadavku" type="submit">Odoslať požiadavku</button>
+      <p class="form-note">Povinné polia sú označené hviezdičkou. Údaje sa nikam neodosielajú ani neukladajú; ide o ukážkový formulár.</p>
+    </form>
+  </div></section></main>
+  <footer class="site-footer"><div class="container footer-grid"><div><a class="brand footer-brand" href="index.html"><span class="brand-mark" aria-hidden="true">F</span><span>FIXORA <b>PC</b></span></a><p>Servis, čistenie a diagnostika počítačov v Martine a okolí.</p></div><div><h2>Navigácia</h2><a href="sluzby.html">Služby</a><a href="cennik.html">Cenník</a><a href="referencie.html">Referencie</a><a href="kontakt.html">Kontakt</a></div><div><h2>Kontakt</h2><p>Martin a okolie</p><p class="model-label">Modelové údaje — doplnia sa po potvrdení firmy</p></div></div><div class="container footer-bottom"><span>© <span data-year></span> FIXORA PC</span><span>Modelový webový návrh</span></div></footer>
+  <script src="script.js"></script>
+</body>
+</html>

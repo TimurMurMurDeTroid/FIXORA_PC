@@ -3,33 +3,149 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Moje portfólio — začiatok</title>
-  <!-- Vzhľad stránky je v samostatnom súbore styles.css (vrstva CSS) -->
+  <meta name="description" content="FIXORA PC — modelový web pre servis, diagnostiku, čistenie a upgrade počítačov v Martine a okolí.">
+  <title>FIXORA PC — servis počítačov</title>
   <link rel="stylesheet" href="styles.css">
 </head>
-<body>
-
-  <main class="uvitanie">
-    <div class="emoji">👋</div>
-    <h1>Tu vznikne moje portfólio</h1>
-    <p class="podtext">
-      Toto je štartová stránka kurzu <strong>Tvorba webstránok</strong>.
-      Odteraz ju budeš meniť ty — s pomocou AI asistenta.
-    </p>
-
-    <div class="karta">
-      <p class="karta-nadpis">Ako začať:</p>
-      <ol>
-        <li>Otvor <strong>Copilot Chat</strong> (ikona Copilota vpravo) — sem píšeš, čo chceš vytvoriť.</li>
-        <li>Tento súbor <code>index.html</code> si pozri v <strong>živom náhľade</strong>: pravý klik naň → <em>Show Preview</em>.</li>
-        <li>Choď na <strong>Blok 7</strong> kurzu a postupuj podľa neho.</li>
-      </ol>
+<body data-page="domov">
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html" aria-label="FIXORA PC — domov">
+        <span class="brand-mark" aria-hidden="true">F</span>
+        <span>FIXORA <b>PC</b></span>
+      </a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-nav">
+        <span class="sr-only">Otvoriť menu</span><span></span><span></span><span></span>
+      </button>
+      <nav class="main-nav" id="main-nav" aria-label="Hlavná navigácia">
+        <a href="index.html" data-nav="domov">Domov</a>
+        <a href="sluzby.html" data-nav="sluzby">Služby</a>
+        <a href="cennik.html" data-nav="cennik">Cenník</a>
+        <a href="referencie.html" data-nav="referencie">Referencie</a>
+        <a href="kontakt.html" data-nav="kontakt">Kontakt</a>
+        <a class="button button-primary nav-cta" href="objednavka.html">Objednať servis</a>
+      </nav>
     </div>
+  </header>
 
-    <p class="poznamka">
-      Keď spravíš prvú zmenu, tento text pokojne zmaž — je len na úvod.
-    </p>
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">Servis a údržba počítačov</p>
+          <h1>Počítač má byť rýchly, tichý a spoľahlivý.</h1>
+          <p class="hero-lead">Čistenie, diagnostika a upgrade stolných počítačov aj notebookov pre domácnosti a firmy v Martine a okolí.</p>
+          <div class="button-row">
+            <a class="button button-primary" href="objednavka.html">Objednať servis</a>
+            <a class="button button-secondary" href="sluzby.html">Pozrieť služby</a>
+          </div>
+        </div>
+        <div class="hero-visual" aria-label="Ilustrácia stolného počítača">
+          <div class="monitor">
+            <div class="monitor-screen">
+              <span class="screen-ring ring-one"></span>
+              <span class="screen-ring ring-two"></span>
+              <span class="screen-core"></span>
+            </div>
+            <div class="monitor-neck"></div>
+            <div class="monitor-base"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="sluzby">
+      <div class="container">
+        <div class="section-heading">
+          <div><p class="eyebrow">Čo vieme zariadiť</p><h2>Prehľad služieb</h2></div>
+          <a class="text-link" href="sluzby.html">Všetky služby <span aria-hidden="true">→</span></a>
+        </div>
+        <div class="card-grid services-grid">
+          <article class="card service-card">
+            <div class="icon-box" aria-hidden="true">PC</div>
+            <h3>Čistenie stolných PC</h3>
+            <p>Odporúčaný základný servis pre nižšiu teplotu, menej hluku a prehľadnosť vnútra zariadenia.</p>
+            <a class="card-link" href="sluzby.html">Zistiť viac <span aria-hidden="true">→</span></a>
+          </article>
+          <article class="card service-card">
+            <div class="icon-box" aria-hidden="true">NB</div>
+            <h3>Čistenie notebooku</h3>
+            <p>Starostlivé odstránenie prachu z chladiaceho systému a kontrola prevádzkových teplôt.</p>
+            <a class="card-link" href="sluzby.html">Zistiť viac <span aria-hidden="true">→</span></a>
+          </article>
+          <article class="card service-card">
+            <div class="icon-box" aria-hidden="true">DX</div>
+            <h3>Diagnostika</h3>
+            <p>Overenie prípadnej poruchy, možných príčin a ďalších krokov bez zbytočného zasahovania.</p>
+            <a class="card-link" href="sluzby.html">Zistiť viac <span aria-hidden="true">→</span></a>
+          </article>
+          <article class="card service-card">
+            <div class="icon-box" aria-hidden="true">UP</div>
+            <h3>Upgrade komponentov</h3>
+            <p>Výber vhodnej pamäte, SSD alebo ďalších komponentov podľa zariadenia a očakávanej práce.</p>
+            <a class="card-link" href="sluzby.html">Zistiť viac <span aria-hidden="true">→</span></a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt" id="ako-to-funguje">
+      <div class="container">
+        <div class="section-heading"><div><p class="eyebrow">Jednoduchý postup</p><h2>Ako to funguje</h2></div></div>
+        <ol class="steps">
+          <li><span class="step-number">01</span><h3>Popíšte problém</h3><p>Vyberte typ zariadenia, službu a stručne popíšte, čo sa deje.</p></li>
+          <li><span class="step-number">02</span><h3>Dohodneme ďalší krok</h3><p>Kontakt potvrdíme a spoločne zvolíme najvhodnejší postup.</p></li>
+          <li><span class="step-number">03</span><h3>Oceníme a opravíme</h3><p>Pred prácou vyjasníme rozsah, orientačné náklady a potrebný čas.</p></li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section" id="cennik">
+      <div class="container">
+        <div class="section-heading">
+          <div><p class="eyebrow">Orientačný prehľad</p><h2>Cenník</h2></div>
+          <a class="text-link" href="cennik.html">Celý cenník <span aria-hidden="true">→</span></a>
+        </div>
+        <div class="card-grid price-grid">
+          <article class="card price-card"><p class="price-label">Čistenie stolného PC</p><h3>od 35 €</h3><p>Modelový čas: 1–2 hod.</p></article>
+          <article class="card price-card"><p class="price-label">Čistenie notebooku</p><h3>od 45 €</h3><p>Modelový čas: 1–3 hod.</p></article>
+          <article class="card price-card"><p class="price-label">Diagnostika</p><h3>od 25 €</h3><p>Modelový čas: 1–2 hod.</p></article>
+          <article class="card price-card"><p class="price-label">Upgrade komponentov</p><h3>od 20 €</h3><p>Modelový čas: 1–3 hod. + dodanie komponentu</p></article>
+        </div>
+        <p class="data-note">Ceny a časy sú modelové orientačné údaje. Skutočný rozsah, cenu a termín treba potvrdiť pred servisom.</p>
+      </div>
+    </section>
+
+    <section class="section section-alt" id="referencie">
+      <div class="container">
+        <div class="section-heading">
+          <div><p class="eyebrow">Ukážka rozloženia</p><h2>Referencie</h2></div>
+          <a class="text-link" href="referencie.html">Všetky referencie <span aria-hidden="true">→</span></a>
+        </div>
+        <div class="card-grid testimonial-grid">
+          <blockquote class="card testimonial"><p>„Prehľadné vysvetlenie problému a jasné informácie pred začatím práce.“</p><footer><strong>Modelová referencia 1</strong><span>Testovací zákazník</span></footer></blockquote>
+          <blockquote class="card testimonial"><p>„Čistý postup a pohodlný spôsob, ako popísať požiadavku na servise.“</p><footer><strong>Modelová referencia 2</strong><span>Testovací zákazník</span></footer></blockquote>
+        </div>
+        <p class="data-note">Toto sú modelové ukážky obsahu, nie potvrdené hodnotenia zákazníkov.</p>
+      </div>
+    </section>
+
+    <section class="section contact-strip" id="kontakt">
+      <div class="container contact-strip-inner">
+        <div><p class="eyebrow">Potrebujete poradiť?</p><h2>Naplánujme servis vášho zariadenia.</h2></div>
+        <div class="button-row"><a class="button button-primary" href="objednavka.html">Objednať servis</a><a class="button button-secondary" href="kontakt.html">Kontaktné údaje</a></div>
+      </div>
+    </section>
   </main>
 
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div><a class="brand footer-brand" href="index.html"><span class="brand-mark" aria-hidden="true">F</span><span>FIXORA <b>PC</b></span></a><p>Servis, čistenie a diagnostika počítačov v Martine a okolí.</p></div>
+      <div><h2>Navigácia</h2><a href="sluzby.html">Služby</a><a href="cennik.html">Cenník</a><a href="referencie.html">Referencie</a><a href="kontakt.html">Kontakt</a></div>
+      <div><h2>Kontakt</h2><p>Martin a okolie</p><p class="model-label">Modelové údaje — doplnia sa po potvrdení firmy</p></div>
+    </div>
+    <div class="container footer-bottom"><span>© <span data-year></span> FIXORA PC</span><span>Modelový webový návrh</span></div>
+  </footer>
+  <script src="script.js"></script>
 </body>
 </html>
