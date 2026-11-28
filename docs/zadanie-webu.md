@@ -105,7 +105,7 @@ Prepojenia: CTA na stránke Referencie vedie na objednávku servisu.
 
 Najdôležitejšie: používateľ nájde na jednom mieste telefón, e-mail, lokalitu Martin a okolie a otváracie hodiny. Stránka zároveň ponúka priamy prechod na online objednávku a stručne pripomína trojkrokový postup servisu.
 
-Poznámka: konkrétne kontaktné údaje v prototype sú dočasné/modelové. Pred publikovaním sa nahradia reálnymi firemnými údajmi.
+Poznámka: telefón, e-mail, lokalita a otváracie hodiny v ukážke sú modelové kontaktné údaje projektu, nie reálne firemné kontakty. Nie sú vytvorené ako telefonické ani e-mailové odkazy.
 
 Prepojenia: tlačidlo „Prejsť na objednávku“ otvorí objednávkový formulár.
 

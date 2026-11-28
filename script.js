@@ -5,22 +5,54 @@ document.addEventListener("DOMContentLoaded", () => {
   if (menuToggle && nav) {
     const mobileMenu = window.matchMedia("(max-width: 900px)");
     const menuLabel = menuToggle.querySelector(".sr-only");
+    let scrollPosition = 0;
+    let bodyPosition = null;
     const setMenuOpen = (open, restoreFocus = false) => {
+      if (open) {
+        scrollPosition = window.scrollY;
+        bodyPosition = {
+          position: document.body.style.position,
+          top: document.body.style.top,
+          left: document.body.style.left,
+          width: document.body.style.width
+        };
+        document.body.style.position = "fixed";
+        document.body.style.top = `-${scrollPosition}px`;
+        document.body.style.left = "0";
+        document.body.style.width = "100%";
+      }
       menuToggle.setAttribute("aria-expanded", String(open));
       menuLabel.textContent = open ? "Zatvoriť menu" : "Otvoriť menu";
       nav.classList.toggle("open", open);
       document.documentElement.classList.toggle("menu-open", open);
       document.body.classList.toggle("menu-open", open);
       if (open) {
-        nav.querySelector("a").focus();
-      } else if (restoreFocus) {
-        menuToggle.focus();
+        nav.querySelector("a").focus({ preventScroll: true });
+      } else {
+        if (bodyPosition) {
+          document.body.style.position = bodyPosition.position;
+          document.body.style.top = bodyPosition.top;
+          document.body.style.left = bodyPosition.left;
+          document.body.style.width = bodyPosition.width;
+          bodyPosition = null;
+        }
+        const root = document.documentElement;
+        const scrollBehavior = root.style.getPropertyValue("scroll-behavior");
+        const scrollBehaviorPriority = root.style.getPropertyPriority("scroll-behavior");
+        root.style.setProperty("scroll-behavior", "auto", "important");
+        window.scrollTo(0, scrollPosition);
+        if (scrollBehavior) {
+          root.style.setProperty("scroll-behavior", scrollBehavior, scrollBehaviorPriority);
+        } else {
+          root.style.removeProperty("scroll-behavior");
+        }
+        if (restoreFocus) menuToggle.focus({ preventScroll: true });
       }
     };
 
     menuToggle.addEventListener("click", () => {
       const open = menuToggle.getAttribute("aria-expanded") === "true";
-      setMenuOpen(!open);
+      setMenuOpen(!open, open);
     });
 
     nav.querySelectorAll("a").forEach((link) => {
@@ -38,10 +70,10 @@ document.addEventListener("DOMContentLoaded", () => {
         const lastLink = links[links.length - 1];
         if (event.shiftKey && document.activeElement === firstLink) {
           event.preventDefault();
-          lastLink.focus();
+          lastLink.focus({ preventScroll: true });
         } else if (!event.shiftKey && document.activeElement === lastLink) {
           event.preventDefault();
-          firstLink.focus();
+          firstLink.focus({ preventScroll: true });
         }
       }
     });
