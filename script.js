@@ -3,29 +3,52 @@ document.addEventListener("DOMContentLoaded", () => {
   const nav = document.querySelector(".main-nav");
 
   if (menuToggle && nav) {
+    const mobileMenu = window.matchMedia("(max-width: 900px)");
+    const menuLabel = menuToggle.querySelector(".sr-only");
+    const setMenuOpen = (open, restoreFocus = false) => {
+      menuToggle.setAttribute("aria-expanded", String(open));
+      menuLabel.textContent = open ? "Zatvoriť menu" : "Otvoriť menu";
+      nav.classList.toggle("open", open);
+      document.documentElement.classList.toggle("menu-open", open);
+      document.body.classList.toggle("menu-open", open);
+      if (open) {
+        nav.querySelector("a").focus();
+      } else if (restoreFocus) {
+        menuToggle.focus();
+      }
+    };
+
     menuToggle.addEventListener("click", () => {
       const open = menuToggle.getAttribute("aria-expanded") === "true";
-      menuToggle.setAttribute("aria-expanded", String(!open));
-      menuToggle.querySelector(".sr-only").textContent = open ? "Otvoriť menu" : "Zatvoriť menu";
-      nav.classList.toggle("open", !open);
-      document.body.classList.toggle("menu-open", !open);
+      setMenuOpen(!open);
     });
 
     nav.querySelectorAll("a").forEach((link) => {
       link.addEventListener("click", () => {
-        menuToggle.setAttribute("aria-expanded", "false");
-        nav.classList.remove("open");
-        document.body.classList.remove("menu-open");
+        setMenuOpen(false);
       });
     });
 
     document.addEventListener("keydown", (event) => {
       if (event.key === "Escape" && menuToggle.getAttribute("aria-expanded") === "true") {
-        menuToggle.setAttribute("aria-expanded", "false");
-        menuToggle.querySelector(".sr-only").textContent = "Otvoriť menu";
-        nav.classList.remove("open");
-        document.body.classList.remove("menu-open");
-        menuToggle.focus();
+        setMenuOpen(false, true);
+      } else if (event.key === "Tab" && menuToggle.getAttribute("aria-expanded") === "true") {
+        const links = [...nav.querySelectorAll("a[href]")];
+        const firstLink = links[0];
+        const lastLink = links[links.length - 1];
+        if (event.shiftKey && document.activeElement === firstLink) {
+          event.preventDefault();
+          lastLink.focus();
+        } else if (!event.shiftKey && document.activeElement === lastLink) {
+          event.preventDefault();
+          firstLink.focus();
+        }
+      }
+    });
+
+    window.addEventListener("resize", () => {
+      if (!mobileMenu.matches && menuToggle.getAttribute("aria-expanded") === "true") {
+        setMenuOpen(false);
       }
     });
   }
